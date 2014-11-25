@@ -3,16 +3,23 @@
 """
 
 import os
+import sys
 print( os.getcwd() )
 #os.chdir( 'the dir which include the file sketch.txt' )
 
-data = open( 'sketch.txt' )
+try:
+    data = open( 'sketch.txt' ) #open( 'not_exist.txt' )
+except:
+    print( 'open file failed!' )
+    sys.exit();
 
 for each_line  in data:
-    if not each_line.find( ':' ) == -1: #use key word "not"
+    try:
         ( role, spoken ) = each_line.split( ':', 1 )
         print( role, end = '' )
         print( ' said: ', end = '' )
         print( spoken, end = '' )
+    except:
+        pass
 
 data.close()
