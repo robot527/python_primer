@@ -9,7 +9,7 @@ print( os.getcwd() )
 
 try:
     data = open( 'sketch.txt' ) #open( 'not_exist.txt' )
-except:
+except FileNotFoundError: # or IOError
     print( 'open file failed!' )
     sys.exit();
 
@@ -19,7 +19,7 @@ for each_line  in data:
         print( role, end = '' )
         print( ' said: ', end = '' )
         print( spoken, end = '' )
-    except:
+    except ValueError:
         pass
 
 data.close()
