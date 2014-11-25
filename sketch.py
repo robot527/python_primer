@@ -9,9 +9,7 @@ print( os.getcwd() )
 data = open( 'sketch.txt' )
 
 for each_line  in data:
-        if each_line.find( ':' ) == -1:
-            print( '\t' * 2, 'Can\'t find a ":" in this line !' )
-            continue
+    if not each_line.find( ':' ) == -1: #use key word "not"
         ( role, spoken ) = each_line.split( ':', 1 )
         print( role, end = '' )
         print( ' said: ', end = '' )
