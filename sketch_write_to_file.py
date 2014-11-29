@@ -31,19 +31,13 @@ for each_line  in data:
 
 data.close()
 
-
+""" Using two “with” statements to rewrite
+the code without the “finally” suite.
+"""
 try:
-    man_data = open( 'man_data.txt', 'w' )
-    other_data = open( 'other_data.txt', 'w' )
-    
-    print( man, file = man_data )
-    print( other, file = other_data )
-    
-except IOError:
-    print( 'File error' )
-
-finally: #the code in the finally suite always runs
-    man_data.close() #Ensure that the file is closed
-    other_data.close() #ditto
-    
-
+	with open( 'man_data.txt', 'w' ) as man_file:
+		print( man, file = man_file )
+	with open( 'other_data.txt', 'w' ) as other_file:
+		print( other, file = other_file )
+except IOError as err:
+	print( 'File error: ' + str( err ) )
