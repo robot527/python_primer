@@ -9,17 +9,25 @@ print( os.getcwd() )
 
 try:
     data = open( 'sketch.txt' ) #open( 'not_exist.txt' )
-except FileNotFoundError: # or IOError
-    print( 'open file failed!' )
+except FileNotFoundError:
+    print( 'File not found in the current working directory!' )
     sys.exit();
 
+man = []
+other = []
+    
 for each_line  in data:
     try:
         ( role, spoken ) = each_line.split( ':', 1 )
-        print( role, end = '' )
-        print( ' said: ', end = '' )
-        print( spoken, end = '' )
+        spoken = spoken.strip()
+        if role == 'Man':
+            man.append( spoken )
+        elif role == 'Other Man':
+            other.append( spoken )
     except ValueError:
         pass
 
 data.close()
+
+print( man )
+print( other )
