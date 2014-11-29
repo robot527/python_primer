@@ -39,8 +39,11 @@ try:
     print( man, file = man_data )
     print( other, file = other_data )
     
-    man_data.close()
-    other_data.close()
 except IOError:
     print( 'File error' )
+
+finally: #the code in the finally suite always runs
+    man_data.close() #Ensure that the file is closed
+    other_data.close() #ditto
+    
 
