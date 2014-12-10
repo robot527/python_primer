@@ -1,0 +1,19 @@
+#gitignore config file of python_primer repository 
+# 过滤整个文件夹 __pycache__，images
+/mrdw/cgi-bin/__pycache__/
+/mrdw/images/
+
+#过滤以下类型的文件
+*.zip
+*.rar
+*.via
+*.tmp
+*.err
+*.ico
+
+#跟踪 .py类型的文件
+!*.py
+
+#过滤制定文件
+/.gitignore~
+
