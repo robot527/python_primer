@@ -10,6 +10,7 @@
 *.tmp
 *.err
 *.ico
+*.pyc
 
 #跟踪 .py类型的文件
 !*.py
