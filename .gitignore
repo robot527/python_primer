@@ -16,4 +16,5 @@
 
 #过滤指定文件
 /.gitignore~
+/mrdw/athletes.pickle
 

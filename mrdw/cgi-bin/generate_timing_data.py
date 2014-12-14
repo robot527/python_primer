@@ -1,5 +1,6 @@
-
-#! /usr/local/bin/python3
+#! /usr/bin/python3
+""" The Shebang (#!) characters must be placed 
+at the beginning of a script."""
 
 import cgi
 import athletemodel
