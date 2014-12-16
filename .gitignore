@@ -11,6 +11,8 @@
 *.err
 *.ico
 *.pyc
+*.pickle
+*.sqlite
 
 #跟踪 .py类型的文件
 !*.py
