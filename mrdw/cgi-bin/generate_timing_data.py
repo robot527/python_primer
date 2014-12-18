@@ -2,8 +2,8 @@
 """ The Shebang (#!) characters must be placed 
 at the beginning of a script."""
 
-import cgitb
-cgitb.enable()
+#import cgitb
+#cgitb.enable()
 
 import cgi
 import athletemodel
