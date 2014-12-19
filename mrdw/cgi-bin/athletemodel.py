@@ -20,6 +20,7 @@ def get_athlete_from_id(athlete_id):
 	#get the list of times from the timing_data table
 	results = cursor.execute("""SELECT value FROM timing_data WHERE athlete_id=?""",   (athlete_id,))
 	data = [row[0] for row in results.fetchall()]
+	data.sort()
 	#take the data from both query results and turn it into a dictionary
 	response = {	'Name': name, 
 			'DOB': dob,

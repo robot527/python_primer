@@ -50,7 +50,7 @@ def para(para_text):
 def create_inputs(inputs_list):
         html_inputs = ''
         for each_input in inputs_list:
-                html_inputs = html_inputs + '<input type= "Text" name="' + each_input + '" size=40>'
+                html_inputs += '<input type= "Text" name="' + each_input + '" size=10> &nbsp;&nbsp;'
         return(html_inputs)
 
 def do_form(name, the_inputs, method="POST", text="Submit"):
