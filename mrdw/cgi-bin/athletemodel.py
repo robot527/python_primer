@@ -1,6 +1,6 @@
 import sqlite3
 
-db_name = './cgi-bin/coachdata.sqlite'
+db_name = 'coachdata.sqlite'
 
 def get_names_from_store():
 	connection = sqlite3.connect(db_name)
@@ -36,3 +36,14 @@ def get_namesID_from_store():
 	response = results.fetchall()
 	connection.close()
 	return (response)
+
+def check_athleteId(athlete_id):
+	connection = sqlite3.connect(db_name)
+	cursor = connection.cursor()
+	results = cursor.execute("""SELECT name FROM athletes WHERE id = ?""", (athlete_id,))
+	sel_data = results.fetchall()
+	connection.close()
+	if sel_data == []:
+		return (False)
+	else:
+		return (True)
