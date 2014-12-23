@@ -14,11 +14,11 @@
 *.pickle
 *.sqlite
 *.DS_Store
+*~
 
 #跟踪 .py类型的文件
 !*.py
 
 #过滤指定文件
-/.gitignore~
 /mrdw/athletes.pickle
 
