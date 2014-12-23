@@ -1,5 +1,11 @@
 
-from http.server import HTTPServer, CGIHTTPRequestHandler
+try:
+    #for python3
+    from http.server import HTTPServer, CGIHTTPRequestHandler
+except ImportError:
+    #for python2
+    from BaseHTTPServer import HTTPServer
+    from CGIHTTPServer import CGIHTTPRequestHandler
 
 port = 8080
 

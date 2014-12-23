@@ -18,7 +18,7 @@ for key in form.keys():
 the_id = new_data['Athlete_id']
 the_time = new_data['Time']
 
-if check_athleteId(the_id):
+if check_athleteId(int(the_id)):
 	connection = sqlite3.connect(db_name)
 	cursor = connection.cursor()
 	cursor.execute("INSERT INTO timing_data (athlete_id, value) VALUES(?, ?)", (the_id, the_time))
@@ -29,3 +29,4 @@ if check_athleteId(the_id):
 	print('Insert new data into ' + db_name + ' OK.')
 else:
 	print('The id ' + the_id + ' is not in table, can not insert data!')
+
