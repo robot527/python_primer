@@ -10,7 +10,7 @@ findall(pattern, string, flags=0)
     Return a list of all non-overlapping matches in the string.
 urlopen(url, data=None, proxies=None)
     Create a file-like object for the specified URL to read from.
-re.I is an integer, value is 2
+re.I is an abbreviation of re.IGNORECASE
 """
 for i in re.findall('''href=["'](.[^"']+)["']''', urllib.urlopen(myurl).read(), re.I):
         print i  
