@@ -6,19 +6,19 @@
 
 import os
 import sys
-print( os.getcwd() )
-#os.chdir( 'the directory which include the file sketch.txt' )
+print(os.getcwd())
+#os.chdir('the directory which include the file sketch.txt')
 
 try:
-    data = open( 'sketch.txt' )
+    data = open('sketch.txt')
 except FileNotFoundError:
-    print( 'File not found in the current working directory!' )
+    print('File not found in the current working directory!')
     sys.exit();
-
 man = []
 other = []
 
-def print_nested_list_V3( alist, indent = False, level = 0, fh = sys.stdout ):
+
+def print_nested_list_V3(alist, indent=False, level=0, fh=sys.stdout):
     """ This function takes one positional argument call "alist" which is
         any Python list (of possibly nested list), and two optional arguments
         called "indent" and "level". The indent controls print style, False
@@ -30,21 +30,21 @@ def print_nested_list_V3( alist, indent = False, level = 0, fh = sys.stdout ):
         data to.
     """
     for item in alist:
-        if isinstance( item, list ):
-            print_nested_list_V3( item, indent, level + 1, fh )
+        if isinstance(item, list):
+            print_nested_list_V3(item, indent, level + 1, fh)
         else:
             if indent:
-                print( '\t' * level, end = '', file = fh )
-            print( item, file = fh )
+                print('\t' * level, end='', file=fh)
+            print(item, file=fh)
 
 for each_line  in data:
     try:
-        ( role, spoken ) = each_line.split( ':', 1 )
+        (role, spoken) = each_line.split(':', 1)
         spoken = spoken.strip()
         if role == 'Man':
-            man.append( spoken )
+            man.append(spoken)
         elif role == 'Other Man':
-            other.append( spoken )
+            other.append(spoken)
     except ValueError:
         pass
 
@@ -54,9 +54,9 @@ data.close()
 the code without the “finally” suite.
 """
 try:
-	with open( 'man_data.txt', 'w' ) as man_file:
-		print_nested_list_V3( man, False, 0, man_file )
-	with open( 'other_data.txt', 'w' ) as other_file:
-		print_nested_list_V3( other, fh = other_file )
+	with open('man_data.txt', 'w') as man_file:
+		print_nested_list_V3(man, False, 0, man_file)
+	with open('other_data.txt', 'w') as other_file:
+		print_nested_list_V3(other, fh=other_file)
 except IOError as err:
-	print( 'File error: ' + str( err ) )
+	print('File error: ' + str(err))
