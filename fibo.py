@@ -1,4 +1,5 @@
 #! usr/bin/python3
+#pylint: disable=invalid-name
 
 ''' Different implementations of fibonacci sequence
 have different performances. '''
@@ -31,7 +32,7 @@ fib4 = lambda n: n if n < 2 else fib4(n - 1) + fib4(n - 2)
 
 def fib5(n):
     x, y = 0, 1
-    while(n):
+    while n:
         x, y, n = y, x + y, n - 1
     return x
 
@@ -43,7 +44,7 @@ def fib6(n):
     return fib_iter(n, 0, 1)
 
 
-fib7 = lambda n, x = 0,y = 1: x if not n else fib7(n - 1, y, x + y)
+fib7 = lambda n, x=0, y=1: x if not n else fib7(n - 1, y, x + y)
 
 
 def test_fib(func, para):

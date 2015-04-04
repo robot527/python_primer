@@ -13,7 +13,7 @@ try:
     data = open('sketch.txt')
 except FileNotFoundError:
     print('File not found in the current working directory!')
-    sys.exit();
+    sys.exit()
 man = []
 other = []
 
@@ -54,9 +54,9 @@ data.close()
 the code without the “finally” suite.
 """
 try:
-	with open('man_data.txt', 'w') as man_file:
-		print_nested_list_V3(man, False, 0, man_file)
-	with open('other_data.txt', 'w') as other_file:
-		print_nested_list_V3(other, fh=other_file)
+    with open('man_data.txt', 'w') as man_file:
+        print_nested_list_V3(man, False, 0, man_file)
+    with open('other_data.txt', 'w') as other_file:
+        print_nested_list_V3(other, fh=other_file)
 except IOError as err:
-	print('File error: ' + str(err))
+    print('File error: ' + str(err))
