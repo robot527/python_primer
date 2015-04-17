@@ -1,6 +1,6 @@
 #! /usr/bin/python
 # encoding: utf-8
-""" Example code for get data to table on MySQL database."""
+""" Example code for get data from table on MySQL database."""
 
 
 import MySQLdb
