@@ -4,12 +4,13 @@ def file_travesal(dirtectory='.', file_list=[]):
     '''
     Get file list from the directory including files in its subdirectories.
     '''
-    import os
-    file_list += [os.path.join(dirtectory, f) for f in os.listdir(dirtectory)
-                if os.path.isfile(os.path.join(dirtectory, f))]
-    for item in os.listdir(dirtectory):
-        if os.path.isdir(os.path.join(dirtectory, item)):
-            file_travesal(os.path.join(dirtectory, item), file_list)
+    from os import listdir
+    from os.path import join, isfile, isdir
+    file_list += [join(dirtectory, f) for f in listdir(dirtectory)
+                if isfile(join(dirtectory, f))]
+    for item in listdir(dirtectory):
+        if isdir(join(dirtectory, item)):
+            file_travesal(join(dirtectory, item), file_list)
 
 if __name__ == '__main__':
     print 'Please input a directory.'
