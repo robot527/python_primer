@@ -1,4 +1,4 @@
-#! usr/bin/python
+#! /usr/bin/python
 
 def file_travesal(dirtectory='.', file_list=[]):
     '''
