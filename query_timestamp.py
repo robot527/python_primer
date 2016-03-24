@@ -20,8 +20,12 @@ if __name__ == '__main__':
     running = True
     print 'Please input a timestamp, or Press Enter for current time, or q for exit.'
     while running:
-        print 'Usage - "Press Enter", "1458000000", "q"'
-        para = raw_input("@> ")
+        print 'Usage - "Press Enter", "1458000000", "2147483647", "q"'
+        try:
+            para = raw_input("@> ")
+        except EOFError:
+            print "If you want to quit, press Q key.\n"
+            continue
         if para is '':
             show_date_time()
             print "Current timestamp is", time.time()
@@ -32,8 +36,10 @@ if __name__ == '__main__':
             #if para not in ['n', "no"]:
                 running = False
         else:
-            show_date_time(int(para))
+            try:
+                show_date_time(int(para))
+            except ValueError:
+                print "Input para error !"
             print
     else:
         print 'You have exited successfully.'
-
