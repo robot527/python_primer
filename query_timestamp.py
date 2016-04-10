@@ -1,16 +1,22 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
-# query_time.py
+# query_timestamp.py
 # author: robot527
 # created at 2016-3-24
+
+'''
+Display the local date and time(human-readable format)
+to the POSIX timestamp.
+'''
+
 
 import time
 
 
 def show_date_time(timestamp=time.time()):
     '''
-    Display the local date and time(human-readable format) to the POSIX timestamp.
-	Defualt show the current date and time.
+    Display the local date and time(human-readable format)
+    to the POSIX timestamp. Defualt show the current date and time.
     '''
     from datetime import datetime
     print datetime.fromtimestamp(timestamp).isoformat(' ')
@@ -18,7 +24,8 @@ def show_date_time(timestamp=time.time()):
 
 if __name__ == '__main__':
     running = True
-    print 'Please input a timestamp, or Press Enter for current time, or q for exit.'
+    print '''Please input a timestamp, or Press Enter for current time,\
+    or q for exit.'''
     while running:
         print 'Usage - "Press Enter", "1458000000", "2147483647", "q"'
         try:
