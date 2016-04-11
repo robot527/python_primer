@@ -1,6 +1,12 @@
 #! /usr/bin/python
 
-def file_travesal(dirtectory='.', file_list=[]):
+'''
+Get .c file and .h file list from the directory recursive its subdirectories.
+Print the file list to stdout.
+'''
+
+
+def file_travesal(dirtectory='.', file_list=[]): # pylint: disable=W0102
     '''
     Get file list from the directory including files in its subdirectories.
     '''
