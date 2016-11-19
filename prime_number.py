@@ -11,7 +11,9 @@ def is_prime(num):
     from math import sqrt
     if num < 2:
         return 0
-    for i in range(2, int(sqrt(num))+1):
+    elif num == 2:
+        return 1
+    for i in range(3, int(sqrt(num)) + 1, 2):
         if num % i == 0:
             return 0
     return 1
@@ -19,8 +21,8 @@ def is_prime(num):
 
 def prime_number(num):
     '''Calculate all prime numbers less than num.'''
-    prime_list = []
-    for i in range(2, num):
+    prime_list = [2]
+    for i in range(3, num, 2):
         if is_prime(i) == 1:
             prime_list.append(i)
     return prime_list
