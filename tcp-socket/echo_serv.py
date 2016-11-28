@@ -16,7 +16,7 @@ def tcp_conn(sock, addr):
         data = sock.recv(LINE_MAX_LEN)
         if not data or data == 'exit':
             break
-        sock.send(data)
+        sock.send('Hello, %s!' % data)
     sock.close()
     print 'Connection from %s:%s closed.' % addr
 

@@ -2,16 +2,14 @@
 
 ''' Echo client program. '''
 
-HOST = '127.0.0.1'
-SERV_PORT = 9300
 LINE_MAX_LEN = 2048
 
 
-def main():
+def main(host, port):
     ''' main function for client. '''
     import socket
-    sock = socket.socket(socket.AF_INET)
-    sock.connect((HOST, SERV_PORT))
+    #sock = socket.socket(socket.AF_INET)
+    sock = socket.create_connection((host, port))
     print sock.recv(LINE_MAX_LEN)
     while True:
         try:
@@ -33,4 +31,20 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    from optparse import OptionParser
+    from sys import argv
+    usage = "usage: python %prog [options] args"
+    parser = OptionParser(usage)
+    parser.add_option("-s", "--server",
+                      default="127.0.0.1",
+                      help="server ip address [default: %default]")
+    parser.add_option("-p", "--port",
+                      metavar="N", type="int",
+                      default="9300",
+                      help="server tcp port [default: %default]")
+    argc = len(argv)
+    if argc < 2:
+        parser.print_help()
+    else:
+        (options, args) = parser.parse_args()
+        main(options.server, options.port)
